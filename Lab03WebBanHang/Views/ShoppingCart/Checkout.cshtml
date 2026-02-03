@@ -1,0 +1,34 @@
+﻿@model Order
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-primary text-white py-3 border-0">
+                    <h5 class="mb-0 fw-bold">Thông tin giao hàng</h5>
+                </div>
+
+                <div class="card-body p-4">
+                    <form asp-action="Checkout" method="post">
+                        <div class="mb-3">
+                            <label asp-for="ShippingAddress" class="form-label text-secondary">Địa chỉ nhận hàng</label>
+                            <input asp-for="ShippingAddress" class="form-control bg-light" placeholder="Nhập địa chỉ..." />
+                        </div>
+
+                        <div class="mb-4">
+                            <label asp-for="Notes" class="form-label text-secondary">Ghi chú đơn hàng (nếu có)</label>
+                            <textarea asp-for="Notes" class="form-control bg-light" rows="5"
+                                      placeholder="Ví dụ: Giao giờ hành chính, gọi trước khi giao..."></textarea>
+                        </div>
+
+                        <div class="text-end">
+                            <button type="submit" class="btn btn-success px-4 py-2 d-inline-flex align-items-center">
+                                <span class="me-2">&#10003;</span> Xác nhận đặt hàng
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

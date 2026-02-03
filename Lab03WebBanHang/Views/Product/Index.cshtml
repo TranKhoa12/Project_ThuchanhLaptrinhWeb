@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Lab03WebBanHang.Models.Product>
+
+@{
+    var numOfQuantity = 1;
+}
+
+<div class="container mt-5">
+    <h3 class="fw-bold mb-4">Danh sách sản phẩm</h3>
+
+    <div class="row g-4">
+        @foreach (var product in Model)
+        {
+            <div class="col-md-3">
+                <div class="card h-100 shadow-sm text-center p-3">
+
+                    <!-- Hình ảnh -->
+                    <img src="@product.ImageUrl"
+                         class="card-img-top mb-3"
+                         style="height: 220px; object-fit: contain;" />
+
+                    <!-- Tên -->
+                    <h6 class="fw-bold" style="min-height: 48px;">
+                        @product.Name
+                    </h6>
+
+                    <!-- Giá -->
+                    <p class="text-danger fw-bold fs-5">
+                        @product.Price.ToString("N0") đ
+                    </p>
+
+                    <!-- Nút -->
+                    <a asp-controller="ShoppingCart"
+                       asp-action="AddToCart"
+                       asp-route-productId="@product.Id"
+                       asp-route-quantity="@numOfQuantity"
+                       class="btn btn-warning w-100 fw-bold">
+                        Thêm vào giỏ
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
